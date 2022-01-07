@@ -1,5 +1,6 @@
 package application;
 
+import entities.Company;
 import entities.Individual;
 import entities.TaxPlayer;
 
@@ -46,9 +47,8 @@ public class Program {
 
                 System.out.print("Number of employees: ");
                 int numberOfEmployees = sc.nextInt();
-                sc.nextLine();
 
-                taxPlayers.add(new Individual(name, anualIncome, numberOfEmployees));
+                taxPlayers.add(new Company(name, anualIncome, numberOfEmployees));
             }
 
         }

@@ -24,9 +24,9 @@ public class Company extends TaxPlayer{
         double tax;
 
         if(getNumberOfEmployees() > 10){
-            tax = getAnualIncome() * 14 / 100;
+            tax = getAnualIncome() * 0.14;
         } else {
-            tax = getAnualIncome() * 16 / 100;
+            tax = getAnualIncome() * 0.16;
         }
 
         return tax;

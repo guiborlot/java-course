@@ -14,7 +14,7 @@ import java.util.Map;
 
 public class SellerDaoJDBC implements SellerDao {
 
-    private Connection conn;
+    private final Connection conn;
 
     public SellerDaoJDBC(Connection conn) {
         this.conn = conn;
@@ -69,7 +69,7 @@ public class SellerDaoJDBC implements SellerDao {
             st.setDate(3, new java.sql.Date(obj.getBirthDate().getTime()));
             st.setDouble(4, obj.getBaseSalary());
             st.setInt(5, obj.getDepartment().getId());
-            st.setInt(6, obj.getId());;
+            st.setInt(6, obj.getId());
 
             st.executeUpdate();
 
@@ -112,8 +112,8 @@ public class SellerDaoJDBC implements SellerDao {
 
             if(rs.next()){
                 Department dep = instatiateDepartment(rs);
-                Seller obj = instatiateSeller(rs, dep);
-                return obj;
+
+                return instatiateSeller(rs, dep);
             }
             return null;
         } catch (SQLException e){

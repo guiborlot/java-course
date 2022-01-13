@@ -25,6 +25,7 @@ hs_err_pid*
 # others
 out
 mysql-connector-java-8.0.27
+cap-23-proj-javafx/workshop-javafx-jdbc/javafx-sdk-17.0.1
 target
 .idea
 *.iml

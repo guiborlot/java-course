@@ -24,6 +24,8 @@ hs_err_pid*
 
 # others
 out
+mysql-connector-java-8.0.27
+target
 .idea
 *.iml
 *.csv

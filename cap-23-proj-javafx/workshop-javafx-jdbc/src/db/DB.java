@@ -38,7 +38,7 @@ public class DB {
 	}
 	
 	private static Properties loadProperties() {
-		try (FileInputStream fs = new FileInputStream("/home/borlot/Trabalhos/java-course/cap-23-proj-javafx/workshop-javafx-jdbc/db.properties")) {
+		try (FileInputStream fs = new FileInputStream("db.properties")) {
 			Properties props = new Properties();
 			props.load(fs);
 			return props;

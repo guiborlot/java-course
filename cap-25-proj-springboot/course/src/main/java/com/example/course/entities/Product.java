@@ -10,11 +10,11 @@ import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
-@Entity
-@Table(name = "tb_category")
-@EqualsAndHashCode
 @NoArgsConstructor
-public class Category implements Serializable {
+@EqualsAndHashCode
+@Entity
+@Table(name = "tb_product")
+public class Product implements Serializable {
 
     @Getter
     @EqualsAndHashCode.Include
@@ -27,14 +27,26 @@ public class Category implements Serializable {
     private String name;
 
     @Getter
-    @Transient
-    private Set<Product> products = new HashSet<>();
+    @Setter
+    private String description;
 
-    public Category(Long id, String name) {
+    @Getter
+    @Setter
+    private Double price;
+
+    @Getter
+    @Setter
+    private String imgUrl;
+
+    @Getter
+    @Transient
+    private Set<Category> categories = new HashSet<>();
+
+    public Product(Long id, String name, String description, Double price, String imgUrl) {
         this.id = id;
         this.name = name;
+        this.description = description;
+        this.price = price;
+        this.imgUrl = imgUrl;
     }
-
-
-
 }

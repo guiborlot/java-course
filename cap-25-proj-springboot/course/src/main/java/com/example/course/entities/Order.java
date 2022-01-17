@@ -17,6 +17,7 @@ public class Order implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Getter
     @Setter
+    @EqualsAndHashCode.Include
     private Long id;
 
     @Getter

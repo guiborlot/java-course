@@ -1,0 +1,4 @@
+package com.example.course.entities.pk;
+
+public class OrderItemPk {
+}

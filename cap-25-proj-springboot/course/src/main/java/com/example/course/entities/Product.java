@@ -1,5 +1,6 @@
 package com.example.course.entities;
 
+import com.fasterxml.jackson.annotation.*;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -14,7 +15,7 @@ import java.util.Set;
 @EqualsAndHashCode
 @Entity
 @Table(name = "tb_product")
-public class Product implements Serializable {
+public class Product implements Serializable{
 
     @Getter
     @EqualsAndHashCode.Include
@@ -39,7 +40,11 @@ public class Product implements Serializable {
     private String imgUrl;
 
     @Getter
-    @Transient
+    @ManyToMany
+    @JsonIgnore
+    @JoinTable(name = "tb_product_category"
+            , joinColumns = @JoinColumn(name = "product_id")
+            , inverseJoinColumns = @JoinColumn(name = "category_id"))
     private Set<Category> categories = new HashSet<>();
 
     public Product(Long id, String name, String description, Double price, String imgUrl) {

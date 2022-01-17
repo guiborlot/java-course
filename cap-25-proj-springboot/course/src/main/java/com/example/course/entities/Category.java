@@ -1,5 +1,6 @@
 package com.example.course.entities;
 
+import com.fasterxml.jackson.annotation.*;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -20,6 +21,7 @@ public class Category implements Serializable {
     @EqualsAndHashCode.Include
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Setter
     private Long id;
 
     @Getter
@@ -27,7 +29,8 @@ public class Category implements Serializable {
     private String name;
 
     @Getter
-    @Transient
+    @ManyToMany(mappedBy = "categories")
+    @JsonIgnore
     private Set<Product> products = new HashSet<>();
 
     public Category(Long id, String name) {
